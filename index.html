@@ -1,49 +1,352 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+        <title>reveal.js</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/material.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+        <script src="lib/js/d3.min.js"></script>
+        <script src="lib/js/d3pie.min.js"></script>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+        <style>
+            img.rh-logo {
+                border: none !important;
+                background: none !important;
+                box-shadow: none !important;
+            }
+            img.rh-small {
+                position: fixed;
+                right: 20px;
+                width: 10%;
+            }
+            div#PRpieChart {
+                z-index: 9999 !important;
+            }
+            p.quote {
+                text-align: left !important;
+            }
+            p.quote b i {
+                font-family: monospace;
+            }
+            p.indent {
+                text-indent: 50px;
+            }
+            p.quote span.small {
+                font-family: monospace;
+                margin-left: 100px;
+            }
+            .small {
+                font-size: 40% !important;
+            }
+            .medium {
+                font-size: 70% !important;
+            }
+            i.material-icons {
+                text-indent: 0px !important;
+                font-size: 50% !important;
+            }
+            .mono {
+                font-family: monospace !important;
+                font-size: 60% !important;
+                border-bottom: 1px solid #ffffff !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <img class="rh-logo" src="img/Red_Hat_RGB_reverse.svg.png" alt="Red Hat Logo">
+                    <h1>Intern Expo</h1>
+                    <h4>Alexander Scheel</h4>
+                    <p>Summer 2017</p>
+                </section>
+                <section>
+                    <img class="rh-logo rh-small" src="img/Red_Hat_RGB_reverse.svg.png" alt="Red Hat Logo">
+                    <h2>Internship Overview</h2>
+                    <p class="quote medium">
+                        <b><i>&nbsp;&nbsp;1</i></b> &mdash; Rejected PRs<br>
+                            <span class="small">krb5 - fixing compiler warnings<br></span>
+                        <b><i>&nbsp;&nbsp;1</i></b> &mdash; New projects started<br>
+                            <span class="small">{<a href="https://github.com/cipherboy/nfs-vagrant" target="_blank">nfs-vagrant</a>}<br></span>
+                        <b><i>&nbsp;&nbsp;1</i></b> &mdash; Analyzed BZs<br>
+                            <span class="small">{<a href="https://bugzilla.redhat.com/show_bug.cgi?id=1199363" target="_blank">1199363</a>, <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1477231" target="_blank">1477231</a>, <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1463665" target="_blank">1463665</a>}<br></span>
+                        <b><i>&nbsp;&nbsp;5</i></b> &mdash; Upstreams contributed to<br>
+                            <span class="small">{<a href="https://github.com/krb5/krb5/pulls?q=is%3Apr%20author%3Acipherboy%20" target="_blank">krb5</a>, <a href="https://pagure.io/gssproxy/pull-requests?status=all" target="_blank">gssproxy</a>, <a href="https://github.com/pythongssapi/python-gssapi/pulls?q=is%3Apr%20author%3Acipherboy%20" target="_blank">python-gssapi</a>, <a href="https://pagure.io/SSSD/ding-libs/pull-requests?status=all" target="_blank">ding-libs</a>, <a href="https://github.com/latchset/libverto/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Acipherboy" target="_blank">libverto</a>}<br></span>
+                        <b><i>&nbsp;&nbsp;8</i></b> &mdash; Open PRs<br>
+                            <span class="small">{krb5: 1, gssproxy: 3, python-gssapi: 4}<br></span>
+                        <b><i>&nbsp;16</i></b> &mdash; Accepted PRs<br>
+                            <span class="small">{krb5: 1, gssproxy: 6, python-gssapi: 3, ding-libs: 5, libverto: 1}<br></span>
+                        <b><i>100</i></b> &mdash; Percent open source and publicly available<br>
+                    </p>
+                </section>
+                <section>
+                    <section>
+                        <img class="rh-logo rh-small" src="img/Red_Hat_RGB_reverse.svg.png" alt="Red Hat Logo">
+                        <h2>Kerberos:</h2>
+                        <h2>Added Channel Bindings Support</h2>
+                        <p>(per <a href="https://tools.ietf.org/html/draft-ietf-kitten-channel-bound-flag-01" target="_blank">draft-ietf-kitten-channel-bound-flag-01</a>)
+                    </section>
+                    <section>
+                        <img class="rh-logo rh-small" src="img/Red_Hat_RGB_reverse.svg.png" alt="Red Hat Logo">
+                        <h3>Kerberos</h3>
+                        <p>
+                            <ul>
+                                <li>Proves principal identity</li>
+                                <li>Provides encryption between principals</li>
+                                <li>
+                                    Provides the Generic Security Services (GSS) API
+                                </li>
+                            </ul>
+                        </p>
+                    </section>
+                    <section>
+                        <img class="rh-logo rh-small" src="img/Red_Hat_RGB_reverse.svg.png" alt="Red Hat Logo">
+                        <h3>Channel Bindings</h3>
+                        <p>
+                            <ul>
+                                <li>TLS &mdash; Provides man in the mittle (MiTM) attack protection guarantees</li>
+                                <li>GSS &mdash; Provides principal identity guarantees</li>
+                            </ul>
+                            <br><br>
+                            Channel bindings: Let GSS know that it is running over a
+                            channel with MiTM attack prevention guarantees.
+                            This is accomplished using tokens and/or network addresses.
+                            It is up to the application to create and transfer these tokens.
+                            The suggested token would be the <span class="mono">FINISHED</span>
+                            message from a TLS Handshake.
+                        </p>
+                    </section>
+                    <section>
+                        <img class="rh-logo rh-small" src="img/Red_Hat_RGB_reverse.svg.png" alt="Red Hat Logo">
+                        <h3>details</h3>
+                        <p class="quote medium indent">
+                            There were two parts to the <a href="https://tools.ietf.org/html/draft-ietf-kitten-channel-bound-flag-01" target="_blank">draft</a>:
+                            an extension of the syntax in the direction of a future GSS v3, and an update to the semantics of channel bindings. The former part involved
+                            extending the GSS calls towards a builder interface, allowing options to be specified earlier via <span class="mono">gss_create_sec_context(...)</span>
+                            and <span class="mono">gss_set_context_flags(...)</span>. The latter part involved using these newly provided flags in
+                            <span class="mono">gss_init_sec_context(...)</span> and <span class="mono">gss_accept_sec_context(...)</span> (and the underlying mechanisms)
+                            to allow <span class="mono">krb5</span> to expose a channel binding return flag only on success. This will only be exposed in
+                            <span class="mono">gss_accept_sec_context(...)</span>, as <span class="mono">gss_init_sec_context(...)</span> requires updates to the krb5 protocol.
+                            The <a href="https://github.com/krb5/krb5/pull/668" target="_blank">PR</a> will not merge until
+                            <a href="https://github.com/krb5/krb5/pull/668#issuecomment-309842952" target="_blank">updates</a> to the draft are complete.
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <img class="rh-logo rh-small" src="img/Red_Hat_RGB_reverse.svg.png" alt="Red Hat Logo">
+                        <h2>Analyzed BZs</h2>
+                        <p>
+                            <ul>
+                                <li>SSH Delegated Credentials: <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1199363" target="_blank">1199363</a></li>
+                                <li>NFS <span class="mono">ls</span> hang: <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1477231" target="_blank">1477231</a></li>
+                                <li>Obtaining ticket failure: <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1463665" target="_blank">1463665</a></li>
+                            </ul>
+                        </p>
+                    </section>
+                    <section>
+                        <img class="rh-logo rh-small" src="img/Red_Hat_RGB_reverse.svg.png" alt="Red Hat Logo">
+                        <h3>SSH Delegated Creds</h3>
+                        <h4 class="medium">Overview of <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1199363" target="_blank">1199363</a></h4>
+                        <p class="medium quote indent">
+                            SSH provides GSS as an authentication method, allowing it to do Kerberos authentication. SSH will also forward the primary credential
+                            to the remote host, by specifying <span class="mono">GSSAPIDelegateCredentials yes</span>. Because Fedora carries patches to read
+                            <span class="mono">/etc/krb5.conf</span> for the default CCache name and SSH sets <span class="mono">KRB5CCNAME</span> to the specified
+                            credential and not the entire collection, <span class="mono">kinit</span> will refuse to add another credential to the subsidiary ccache.
+                        </p>
+                        <h4 class="medium">Fix</h4>
+                        <p class="medium quote">
+                            Don't set <span class="mono">KRB5CCNAME</span> unless the CCache name is not from <span class="mono">/etc/krb5.conf</span>.
+                            <a href="https://bugzilla.redhat.com/attachment.cgi?id=1308961&action=diff" target="_blank">Current patch</a>
+                        </p>
+                        <h4 class="medium">Thanks</h4>
+                        <p class="medium quote">
+                            reporting: tibbs; fixing: jjelen; guidance &amp; advice: rharwood
+                        </p>
+                    </section>
+                    <section>
+                        <img class="rh-logo rh-small" src="img/Red_Hat_RGB_reverse.svg.png" alt="Red Hat Logo">
+                        <h3>NFS <span class="mono">ls</span> hang</h3>
+                        <h4 class="medium">Overview of <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1477231" target="_blank">1477231</a></h4>
+                        <p class="medium quote indent">
+                            After setting up Kerberized NFS in <a href="https://github.com/cipherboy/nfs-vagrant" target="_blank">Vagrant</a>,
+                            mounting a share will work, but <span class="mono">ls</span> will hang when trying to view the mount
+                            contents. However, <span class="mono">strace ls</span>, <span class="mono">ltrace ls</span>, and <span class="mono">gdb ls</span>
+                            will <i>not</i> hang. Restarting <span class="mono">rpcbind</span> on the server appears to fix the problem and the issue only happens after
+                            initial server boot. The hang occurs because <span class="mono">rpc.idmapd</span> quits due to a file descriptor being closed.
+                        </p>
+                        <h4 class="medium">Fix</h4>
+                        <p class="medium quote">
+                            Initialize daemon before opening the relevant file descriptors: <a href="https://marc.info/?l=linux-nfs&m=150213295624946&w=2" target="_blank">patch</a>
+                        </p>
+                        <h4 class="medium">Thanks</h4>
+                        <p class="medium quote">
+                            fixing: smayhew; debugging help: sdickson
+                        </p>
+                    </section>
+                    <section>
+                        <img class="rh-logo rh-small" src="img/Red_Hat_RGB_reverse.svg.png" alt="Red Hat Logo">
+                        <h3>Obtaining ticket failure</h3>
+                        <h4 class="medium">Overview of <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1463665" target="_blank">1463665</a></h4>
+                        <p class="medium quote indent">
+                            If the user acquires tickets for two Kerberos realms (e.g., <span class="mono">FEDORAPROBJECT.ORG</span> and <span class="mono">REDHAT.COM</span>)
+                            some services using the non-primary realm will fail to authenticate. This was manifested via <span class="mono">kswitch -p user@FEDORAPROBJECT.ORG</span>,
+                            then connecting to <span class="mono">saml.redhat.com</span> worked while <span class="mono">errata.devel.redhat.com</span> failed. The cause was due to
+                            not allowing DNS lookup of the Kerberos KDC by default, so fallback logic was used. Hence <span class="mono">saml.redhat.com</span> mapped to
+                            <span class="mono">REDHAT.COM</span>, matching the credentials, whereas <span class="mono">errata-web-01.host.prod.eng.bos.redhat.com.</span>
+                            mapped to <span class="mono">HOST.PROD.ENG.BOS.REDHAT.COM</span>.
+                        </p>
+                        <h4 class="medium">Fix</h4>
+                        <p class="medium quote">
+                            This is the desired <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1463665#c36" target="_blank">behavior</a> as DNS lookups are a security <a href="http://colabti.org/irclogger/irclogger_log/krbdev?date=2017-07-31#l22" target="_blank">issue</a>.
+                        </p>
+                        <h4 class="medium">Thanks</h4>
+                        <p class="medium quote">
+                            reporting: bnocera; reproducer: debarshir; pursuing upstream: rharwood
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>gss-proxy</h2>
+                        <p>
+                            <ul>
+                                <li>Extended the test suite</li>
+                                <li>Fixed remaining memory leaks</li>
+                                <li>
+                                    Miscellaneous changes
+                                    <ul>
+                                        <li>Used O_NONBLOCK sockets with short timeout for client connections</li>
+                                        <li>Added better debug messages on the server around handling requests</li>
+                                        <li>Logged config file duplicate sections</li>
+                                        <li>Added conditional reloading kernel interface on SIGHUP</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Test suite extensions</h3>
+                        <p class="quote medium indent">
+                            In order to make the test suite more flexible and to have a better debugging experience,
+                            a similar interface to <span class="mono">krb5</span> was provided. This includes
+                            <span class="mono">--debug-all</span> to debug all test cases,
+                            <span class="mono">--debug-gssproxy</span> to stop before running the test cases,
+                            <span class="mono">--debug-cmd</span> to specify how to debug,
+                            <span class="mono">--debug-num</span> to debug a specific test case,
+                            <span class="mono">--timeout</span> to specify a test case timeout limit,
+                            <span class="mono">--valgrind-cmd</span> to specify arguments to valgrind,
+                            and <span class="mono">--force-valgrind</span> to require all test cases be memory checked.
+                            Also, test case status messages were clarified with changed meaning of the output to be
+                            color agnostic, along clearly displaying expected return value versus actual return value.
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Memory Leaks</h3>
+                        <p class="quote medium indent">
+                            In support of <a href="https://pagure.io/gssproxy/issue/176" target="_blank">Issue#176</a>,
+                            <a href="https://pagure.io/gssproxy/pull-request/203" target="_blank">PR#203</a> and
+                            <a href="https://pagure.io/gssproxy/pull-request/207" target="_blank">PR#207</a> were opened against <span class="mono">gss-proxy</span>,
+                            <a href="https://github.com/latchset/libverto/pull/19" target="_blank">PR#19</a> was opened against <span class="mono">libverto</span>,
+                            and a request for the packaged popt to be updated against an upstream patch was made. This involved a lot of time spent
+                            in <span class="mono">valgrind</span> and <span class="mono">gdb</span> tracking down leaks, but was made easier with the test
+                            suite extensions. There remains work to do checking <span class="mono">libverto</span> and the testsuite/client library for leaks.
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Miscellaneous changes</h3>
+                        <p class="quote medium indent">
+                            In order to help debug intermittent failures in gssproxy, <a href="https://pagure.io/gssproxy/pull-request/205" target="_blank">PR#205</a>
+                            was opened to allow the client to timeout versus hanging forever and add better logging to the server. This will help tibbs record useful
+                            information from his intermittent issues seen on a large deployment. In addition, changes were made to error logging in
+                            <a href="https://pagure.io/gssproxy/pull-request/204" target="_blank">PR#204</a> due to the semantics of upstream <span class="mono">ini_config</span>
+                            and eventually in the behavior around config file reading in <a href="https://pagure.io/gssproxy/pull-request/202" target="_blank">PR#202</a>, after
+                            review and updates shipping to <span class="mono">ini_config</span>.
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>python-gssapi</h2>
+                        <p>
+                            <ul>
+                                <li>Implemented <a href="https://www.rfc-editor.org/rfc/rfc5587.txt" target="_blank">RFC 5587</a>: mechanism inquiry</li>
+                                <li>Implemented <a href="https://tools.ietf.org/rfc/rfc5801.txt" target="_blank">RFC 5801</a>: SASL naming</li>
+                                <li>Implemented channel binding <a href="https://tools.ietf.org/html/draft-ietf-kitten-channel-bound-flag-01" target="_blank">draft</a> support</li>
+                                <li>Added high-level API for mechanisms</li>
+                            </ul>
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>ding-libs</h2>
+                        <p>
+                            <ul>
+                                <li>Extended config section duplicate behavior</li>
+                                <li>Fuzzed ini_config parsing</li>
+                                <li>Clarified regex documentation</li>
+                            </ul>
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>THANKS!</h1>
+                        <p class="quote">
+                            <ul>
+                                <li>DPAL! <span class="small">(fearless leader)</span></li>
+                                <li>RHARWOOD! <span class="small">(local mentor)</span></li>
+                                <li>SIMO! <span class="small">(remote mentor)</span></li>
+                                <li>SROSS! <span class="small">(reviewer)</span></li>
+                                <li>GHUDSON! <span class="small">(MIT reviewer)</span></li>
+                            </ul>
+                        </p>
+                    </section>
+                </section>
+            </div>
+        </div>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+
+            var els = document.getElementsByTagName('a');
+            for (var e in els) {
+                var el = els[e];
+                if (el.target == "_blank") {
+                    el.innerHTML += "&nbsp;<i class=\"material-icons\">launch</i>";
+                }
+            }
+        </script>
+    </body>
 </html>
